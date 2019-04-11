@@ -1,0 +1,65 @@
+
+<body>
+
+<form name="matriculaForm">
+    <fieldset>
+        <legend>Dados do Aluno</legend>
+        <div class="row">
+            <div class="small-4 columns">
+                <label>Nome do Aluno</label>
+                    <input type="text" placeholder="nome" name="nome" ng-model="matricula.nome" ng-minlength="3" required/>
+                    <div ng-show="matriculaForm.nome.$dirty">
+                    <div ng-show="matriculaForm.nome.$error.minlength">O nome deve ter ao menos 3 caracteres</div>
+                    <div ng-show="matriculaForm.nome.$error.required">Nome é obrigatório</div>
+                    </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="small-4 columns">
+                <label>E-mail</label>
+                    <input type="email" placeholder="example@sample.com" name="email" ng-model="matricula.email" required/>
+                <div ng-show="matriculaForm.email.$dirty">
+                    <div ng-show="matriculaForm.email.$error.required">Email é obrigatório</div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="small-4 columns">
+                <label>Data Nascimento</label>
+                    <input type="text" placeholder="dd/mm/aaaa" id="datepicker" name="dataNasc" ng-model="matricula.dataNasc" required ng-pattern="/\d{2}\/\d{2}\/\d{4}/"/>
+                    <div ng-show="matriculaForm.dataNasc.$dirty">
+                    <div ng-show="matriculaForm.dataNasc.$error.required">Data de Nascimento é obrigatório</div>
+                    <div ng-show="matriculaForm.dataNasc.$error.pattern">Siga o padrão correto: dd/mm/aaaa</div>
+                </div>
+            </div>
+        </div>
+    </fieldset>
+    <div class="row">
+        <div class="large-12 columns">
+            <label>Disciplinas
+                <select ng-model="disciplinaSelect" ng-options="disc.nome for disc in disciplinas"></select>
+            </label>
+        </div>
+        <input type="button" class="button [tiny small large]" value="Add" ng-click="addDisc(matricula,disciplinaSelect)"/>
+    </div>
+    <fieldset>
+        <legend>Disciplinas escolhidas</legend>
+        <ul>
+            <div ng-repeat="disc in disciplinasEscolhidas">
+                <li/>{{disc.nome}} {{disc.credito}}
+            </div>
+
+        </ul>
+        <div class="row">
+            <label>Total de Créditos
+                <input type="input" ng-disabled="true" ng-model="creditoTotal"/>
+            </label>
+        </div>
+    </fieldset>
+    <div class="row">
+        <input type="submit" class="button" ng-disabled="matriculaForm.$invalid" value="Salvar" ng-click="saveMatricula(matricula,disciplinasEscolhidas,matriculas.length)"/>
+    </div>
+</form>
+
+
+</body>

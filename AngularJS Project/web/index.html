@@ -1,0 +1,38 @@
+<html ng-app="fasApp">
+<head>
+    <meta charset="utf-8">
+    <title>FAS2 - AngularJS</title>
+    <link rel="stylesheet" href="css/app.css"/>
+    <link rel="stylesheet" href="css/foundation.css"/>
+</head>
+<body>
+<nav class="top-bar">
+    <ul class="title-area">
+        <li class="name"><h1><a href="#/home">Home</a></h1></li>
+
+    </ul>
+    <section class="top-bar-section">
+        <ul class="right">
+            <li><a href="#/disciplina">Cadastrar Disciplinas</a></li>
+            <li><a href="#/matricula">Fazer Matricula</a></li>
+            <li><a href="#/secretaria">Secretaria</a></li>
+        </ul>
+    </section>
+</nav>
+
+<div ng-view></div>
+
+
+<script src="lib/angular.js"></script>
+<script src="lib/angular-route.js"></script>
+<script src="lib/angular-resource.js"></script>
+<script src="js/app.js"></script>
+<script src="js/Services/MatriculaData.js"></script>
+<script src="js/Services/DisciplinaData.js"></script>
+<script src="js/Controllers/MatriculaCtrl.js"></script>
+<script src="js/Controllers/SecretariaCtrl.js"></script>
+<script src="js/Controllers/DisciplinaCtrl.js"></script>
+
+
+</body>
+</html>

@@ -1,0 +1,7 @@
+<h1>{{title.nome}}</h1>
+<div ng-controller="DisciplinaCtrl">
+    <h2>Disciplinas cadastradas</h2>
+    <div ng-repeat="disc in disciplinas">
+        <strong>Nome: </strong>{{disc.nome}} - <strong>Crédito: </strong> {{disc.credito}}
+    </div>
+</div>
